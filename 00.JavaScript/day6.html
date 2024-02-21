@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .red-color{
+            color:red;
+        }
+        .underline{
+            text-decoration: red;
+        }
+    </style>
+    <title>DOM Qury Selectore</title>
+</head>
+<body>
+    <nav class="block">
+        <p>Welcome to my website</p>
+    </nav>
+    <div class="block">
+        <h4>Hey There,MyName is <span id="user">Prince Kumar</span></h4>
+        <p class="paragrah" id="paragrah">Here is my code</p>
+        <pre><code>
+            console.log('Hey there')
+        </code> </pre>
+    </div>
+    <script>
+        //Query Selectore
+        /*const body=document.querySelector("body")
+        console.log(body)
+        body.innerHTML='<h1>Hacked</h1>'
+        output as=Hacked
+        */
+    //    const div=document.querySelector("div")
+    //    div.innerHTML='<h1>Hacked div</h1>'
+        // const username=document.querySelector("#user");
+        // username.innerText="Pinku Kumar"//innerHTML
+        // const para=document.querySelector(".paragrah");
+        // para.innerHTML="Wlecome to dom man"
+        // const ele=document.querySelector("div")
+        // console.log(ele.children)
+        // console.log(ele.parentElement)
+        // const block=document.querySelectorAll(".block")
+        // block.forEach((e)=>console.log(e.innerHTML));
+        //console.log(username.innerText);
+        const el=document.getElementById('user');
+        el.innerText="Jony Kumar"
+        //console.log(el)
+        el.setAttribute('aria','123')
+        el.classList.add('red-color');
+        el.style.textDecoration="underline"
+        el.parentElement.style.backgroundColor="green"
+        el.style.backgroundColor="blue"
+        //el.remove()
+        const element=document.getElementsByClassName('paragrah');
+        el.innerHTML="How is getelementbyclass"
+    </script>
+</body>
+</html>
