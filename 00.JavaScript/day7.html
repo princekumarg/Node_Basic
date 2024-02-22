@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .red-color{
+            color:red;
+        }
+        .underline{
+            text-decoration: red;
+        }
+    </style>
+    <title>DOM Qury Selectore</title>
+</head>
+<body>
+    <nav class="block" >
+        <p id="name-block">Welcome to my website</p>
+    </nav>
+    <div class="block">
+        <h4>Hey There,MyName is <span id="user">Prince Kumar</span></h4>
+        <p class="paragrah" id="paragrah">Here is my code</p>
+        <pre><code>
+            console.log('Hey there')
+        </code> </pre>
+    </div>
+    <div id="my-container"></div>
+    <button id="clickedButton">Click Me</button>
+    <button  onclick="console.log('clicked')">Click Me</button>
+    <button onclick="alert('hey')">Alert</button>
+    <button onclick="handleclick()">Func</button>
+    <button onclick="handleclick()">Event</button>
+    <button id="clickedButton">Ter</button>
+    <script>
+        /*function handleclick(){
+            console.log("That Button is Clicked")
+            alert("Hey I am Clicked")
+        }*/
+        /*const el=document.getElementById("clickedButton")
+        const nameBlock=document.getElementById("name-block")
+        el.addEventListener("click",()=>{
+            nameBlock.style.color="red";
+            console.log(nameBlock.style.color)
+        })*/
+        /*function dosomething(){
+            console.log("I am clicked")
+        }*/
+        /*el.onclick=()=>{
+            console.log("hey i am clicked")
+        };*/
+        /* el.onclick=function(){
+        //     console.log('Hey I am clicked')
+        // }*/
+        /*el.addEventListener("click",function(){
+            console.log("I am clicked")
+        })*/
+        /*el.addEventListener("click",()=>{
+            console.log("I am clicked")
+        })*/
+        //el.addEventListener("click",dosomething)
+        
+    </script>
+    <script>
+        const button=document.getElementById("clickedButton")
+        const container=document.getElementById("my-container")
+        button.addEventListener("click",()=>{
+            const el=document.createElement("h1");
+            el.innerHTML="prince"
+            //container.innerHTML="<h1>Prince</h1>";
+            el.innerHTML="Prince"
+            container.appendChild(el);
+        });
+    </script>
+</body>
+</html>

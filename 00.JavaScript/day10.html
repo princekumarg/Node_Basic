@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="city-input">
+        <button id="search-button">serach</button>
+    </div>
+    <div>
+        <h3 id="city-name">Canda,toronto-"oroto"</h3>
+        <h6 id="city-time">local time</h6>
+        <p id="city-temp">13</p>
+
+    </div>
+    
+</body>
+
+<script>
+    const button=document.getElementById("search-button");
+    const input=document.getElementById('city-input');
+    const cityName=document.getElementById('city-name');
+    const cityTime=document.getElementById('city-time');
+    const cityTemp=document.getElementById('city-temp');
+    async function getData(cityName){
+        const promise=await fetch(`https://api.weatherapi.com/v1/current.json?key=4a9ed5db6a5d4852ba570640242202&q=${cityName}&aqi=yes`);
+        return await promise.json();
+    }
+    button.addEventListener('click',async()=>{
+        const value=input.value;
+        const result=await getData(value)
+        cityName.innerText=`${result.location.name},${result.location.region}-${result.location.country}`;
+        cityTime.innerText=result.location.localtime;
+        cityTemp.innerText=result.current.temp_c;
+    })
+</script>
+</html>
