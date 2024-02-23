@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    <nav class="block">
+        <p>Welcome to my website</p>
+    </nav>
+    <div class="block">
+        <h4>Hey There,MyName is <span id="username">Prince Kumar</span></h4>
+        <p class="paragrah" id="paragrah">Here is my code</p>
+        <pre><code>
+            console.log('Hey there')
+        </code> </pre>
+    </div>
+    <div id="my-container"></div>
+    <input id="input-username" type="text">
+    <button id="clickButton">ClickMe</button>
+</body>
+     <script>
+        const button=document.getElementById("clickButton");
+        const input=document.getElementById('input-username')
+        const username=document.getElementById('username')
+        button.addEventListener('click',()=>{
+            const value=input.value;
+            localStorage.setItem('name',value);
+            location.reload();
+        })
+        window.addEventListener('load',()=>{
+            const value=localStorage.getItem('username');
+            username.innerHTML=value;
+        })
+     </script>
+</html>
