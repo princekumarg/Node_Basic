@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location</title>
+</head>
+<body>
+    <button type="submit" id="loc">click</button>
+</body>
+<script>
+    const button=document.getElementById("loc");
+    function getloc(postion){
+        console.log(postion);
+    }
+    function failloc(){
+        console.log('some issue')
+    }
+    button.addEventListener('click',async ()=>{
+        const loc=await navigator.geolocation.getCurrentPosition(getloc,failloc);
+    });
+</script>
+</html>

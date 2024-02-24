@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+<body>
+    <h1 id="clock"></h1>
+</body>
+<script>
+    function showtime(){
+        const currenttime=new Date();
+        const time=`${currenttime.getHours()}:${currenttime.getMinutes()}:${currenttime.getSeconds()}`;
+        document.getElementById("clock").innerHTML=time;
+    }
+    setTimeout(()=>console.log('hi'),1000);//on show one time
+    setInterval(showtime,1000);
+    //showtime();
+</script>
+</html>
