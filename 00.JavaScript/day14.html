@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Size game</title>
+</head>
+<body>
+    <h1 id="name">Prince</h1>
+    <button id="my-btn">ClickMe</button>
+
+</body>
+<script>
+    const myName=document.getElementById('name');
+    const btn=document.getElementById('my-btn');
+    function makeTextSizer(size){
+        function changeSize(){
+            myName.style.fontSize=`size`;
+        }
+        return changeSize;
+    }
+    const size12=makeTextSizer(12);
+    const size14=makeTextSizer(14);
+    const size16=makeTextSizer(16);
+    const size18=makeTextSizer(18);
+    const size50=makeTextSizer(50);
+    const size5=makeTextSizer(5);
+    btn.addEventListener('click',size12);
+
+</script>
+</html>
