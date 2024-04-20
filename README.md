@@ -30,7 +30,8 @@ Node.js is a runtime environment that allows you to run JavaScript on the server
 
 ### Roadmap
 
-![image](https://github.com/princekumarg/Node_Basic/assets/86905668/e5fb0c91-3a1a-422b-9dd4-c61867887651)
+![image](https://github.com/princekumarg/Node_Basic/assets/86905668/c560a7e1-3c4d-4e7d-8e16-8280afe4d4c3)
+
 
 
 [backend.pdf](https://github.com/princekumarg/Node_Basic/files/15047550/backend.pdf)
