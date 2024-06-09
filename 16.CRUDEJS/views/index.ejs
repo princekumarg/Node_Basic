@@ -11,14 +11,19 @@
 
 <body>
     <div class="w-full h-full bg-zinc-900 text-white">
+        <div class="nav mb-10">
+            <a class="text-blue-500" href="/read">Back To Read</a>
+        </div>
         <h1 class="text-3xl tracking-tighter mb-3">Create User</h1>
         <hr>
-        <form action="">
-            <input class="px-5 py-3  border-2 rounded-lg outline-none bg-transparent" type="text" placeholder="name">
-            <input class="px-5 py-3  border-2 rounded-lg outline-none bg-transparent" type="text" placeholder="email">
-            <input class="px-5 py-3  border-2 rounded-lg outline-none bg-transparent" type="text"
+        <form action="/create" method="post">
+            <input class="px-5 py-3  border-2 rounded-lg outline-none bg-transparent" name="name" type="text"
+                placeholder="name">
+            <input class="px-5 py-3  border-2 rounded-lg outline-none bg-transparent" name="email" type="text"
+                placeholder="email">
+            <input class="px-5 py-3  border-2 rounded-lg outline-none bg-transparent" name="imageurl" type="text"
                 placeholder="imageurl">
-            <input type="submit" class="bg-blue-500 rounded-lg ml-7" value="Create User">
+            <input type="submit" class="bg-blue-500 rounded-lg m-7 p-3" value="Create User">
         </form>
     </div>
 </body>
