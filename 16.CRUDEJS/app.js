@@ -19,6 +19,15 @@ app.get('/delete/:id', async (req, res) => {
     let users = await userModel.findOneAndDelete({ _id: req.params.id });
     res.redirect('/read');
 })
+app.get('/edit/:usersid', async (req, res) => {
+    let users = await userModel.findOne({ _id: req.params.usersid });
+    res.render('edit', { users });
+})
+app.post('/update/:usersid', async (req, res) => {
+    let { name, email, imageurl } = req.body;
+    let users = await userModel.findOneAndUpdate({ _id: req.params.usersid }, { name, email, imageurl }, { new: true });
+    res.redirect('/read');
+})
 app.post('/create', async (req, res) => {
     let { name, email, imageurl } = req.body;
 
