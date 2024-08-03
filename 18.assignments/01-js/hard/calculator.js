@@ -113,4 +113,3 @@ try {
 
 module.exports = Calculator;
 
-module.exports = Calculator;
