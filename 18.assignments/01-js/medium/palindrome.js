@@ -4,14 +4,10 @@
 */
 
 function isPalindrome(str) {
-  let str1 = '';
-  for (let i = str.length; i >= 0; i--) {
-    str1 = str1 + str[i];
-  }
-  if (str1 !== str) {
-    return false
-  }
-  return true;
+  // Remove non-alphanumeric characters and convert to lowercase
+  const cleanedStr = str.replace(/[^a-z0-9]/gi, '').toLowerCase();
+  const reversedStr = cleanedStr.split('').reverse().join('');
+  return cleanedStr === reversedStr;
 }
 
 module.exports = isPalindrome;
