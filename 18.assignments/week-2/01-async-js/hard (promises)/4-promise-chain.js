@@ -14,18 +14,14 @@ function wait(t) {
 function wait1(t1) {
     return wait(t1);
 }
-
 function wait2(t2) {
     return wait(t2);
 }
-
 function wait3(t3) {
     return wait(t3);
 }
-
 function calculateTime(t1, t2, t3) {
     const startTime = Date.now(); // Record start time
-
     return wait1(t1)
         .then(() => wait2(t2))
         .then(() => wait3(t3))

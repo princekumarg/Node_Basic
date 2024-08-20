@@ -1,18 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require("fs");
-
 const app = express();
-
 app.use(bodyParser.json());
-
 function findIndex(arr, id) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].id === id) return i;
   }
   return -1;
 }
-
 function removeAtIndex(arr, index) {
   let newArray = [];
   for (let i = 0; i < arr.length; i++) {
@@ -20,16 +16,14 @@ function removeAtIndex(arr, index) {
   }
   return newArray;
 }
-
 app.get('/todos', (req, res) => {
-  fs.readFile("todos.json", "utf8", function(err, data) {
+  fs.readFile("todos.json", "utf8", function (err, data) {
     if (err) throw err;
     res.json(JSON.parse(data));
   });
 });
-
 app.get('/todos/:id', (req, res) => {
-  fs.readFile("todos.json", "utf8", function(err, data) {
+  fs.readFile("todos.json", "utf8", function (err, data) {
     if (err) throw err;
     const todos = JSON.parse(data);
     const todoIndex = findIndex(todos, parseInt(req.params.id));
@@ -40,8 +34,7 @@ app.get('/todos/:id', (req, res) => {
     }
   });
 });
-
-app.post('/todos', function(req, res) {
+app.post('/todos', function (req, res) {
   const newTodo = {
     id: Math.floor(Math.random() * 1000000), // unique random id
     title: req.body.title,
@@ -57,8 +50,7 @@ app.post('/todos', function(req, res) {
     });
   });
 });
-
-app.put('/todos/:id', function(req, res) {
+app.put('/todos/:id', function (req, res) {
   fs.readFile("todos.json", "utf8", (err, data) => {
     if (err) throw err;
     const todos = JSON.parse(data);
@@ -79,9 +71,7 @@ app.put('/todos/:id', function(req, res) {
     }
   });
 });
-
-app.delete('/todos/:id', function(req, res) {
-
+app.delete('/todos/:id', function (req, res) {
   fs.readFile("todos.json", "utf8", (err, data) => {
     if (err) throw err;
     let todos = JSON.parse(data);
@@ -97,10 +87,8 @@ app.delete('/todos/:id', function(req, res) {
     }
   });
 });
-
 // for all other routes, return 404
 app.use((req, res, next) => {
   res.status(404).send();
 });
-
 module.exports = app;

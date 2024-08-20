@@ -7,8 +7,6 @@
 function vowels(ch) {
   ch = ch.toUpperCase();
   return ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U';
-
-
 }
 function countVowels(str) {
   let count = 0;
