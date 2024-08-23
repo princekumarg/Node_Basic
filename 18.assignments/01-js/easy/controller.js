@@ -4,16 +4,13 @@ const { userSchema, postSchema } = require('../schemas'); // Assuming your Zod s
 // User signup
 exports.signup = async (req, res, next) => {
     try {
-        // Validate the incoming data against the user schema
         const parsedData = userSchema.omit({ id: true, posts: true }).parse(req.body);
 
         const { name, email, password } = parsedData;
 
         const user = await prisma.user.create({
             data: {
-                name,
-                email,
-                password,
+                name, email, password,
             }
         });
         cookieToken(res, user);
@@ -26,9 +23,7 @@ exports.login = async (req, res, next) => {
     try {
         // Validate the incoming data against a subset of the user schema
         const parsedData = userSchema.pick({ email: true, password: true }).parse(req.body);
-
         const { email, password } = parsedData;
-
         const user = await prisma.user.findUnique({
             where: { email }
         });
@@ -58,14 +53,10 @@ exports.createPost = async (req, res, next) => {
     try {
         // Validate the incoming data against the post schema
         const parsedData = postSchema.omit({ id: true }).parse(req.body);
-
         const { slug, title, body, authorId } = parsedData;
-
         const result = await prisma.post.create({
             data: {
-                slug,
-                title,
-                body,
+                slug, title, body,
                 author: { connect: { id: authorId } }
             }
         });
@@ -79,12 +70,9 @@ exports.updatePost = async (req, res, next) => {
     try {
         // Validate the incoming data against a partial post schema
         const parsedData = postSchema.pick({ title: true, body: true }).partial().parse(req.body);
-
         const { id } = req.params;
-
         const result = await prisma.post.update({
-            where: { id },
-            data: parsedData
+            where: { id }, data: parsedData
         });
         res.json(result);
     } catch (error) {
