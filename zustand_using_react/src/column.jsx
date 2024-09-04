@@ -1,5 +1,3 @@
-"use client"
-
 import { useTaskStore } from "@/lib/store"
 import Task from "./task"
 import { useEffect, useMemo } from "react"
@@ -27,7 +25,7 @@ export default function Column({ title, status }) {
   }
 
   return (
-    <section className="h-[600px] flex-1">
+    <section className="h-[400px] flex-1">
       <h2 className="ml-1 font-serif text-2xl font-semibold">{title}</h2>
 
       <div
