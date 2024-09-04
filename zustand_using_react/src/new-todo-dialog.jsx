@@ -1,33 +1,20 @@
 import { Button } from "./components/ui/button"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger
+import {Dialog,DialogContent,DialogDescription,DialogFooter,
+  DialogHeader,DialogTitle,DialogTrigger
 } from "./components/ui/dialog"
 import { Input } from "./components/ui/input"
 import { Textarea } from "./components/ui/textarea"
-
 import { useTaskStore } from "./lib/store"
-
 export default function NewTodoDialog() {
   const addTask = useTaskStore(state => state.addTask)
-
   const handleSubmit = e => {
     e.preventDefault()
-
     const form = e.currentTarget
     const formData = new FormData(form)
     const { title, description } = Object.fromEntries(formData)
-
     if (typeof title !== "string" || typeof description !== "string") return
-
     addTask(title, description)
   }
-
   return (
     <Dialog>
       <DialogTrigger asChild>

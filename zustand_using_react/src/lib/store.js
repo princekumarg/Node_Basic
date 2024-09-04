@@ -1,7 +1,6 @@
 import { create } from "zustand"
 import { v4 as uuid } from "uuid"
 import { persist } from "zustand/middleware"
-
 export const useTaskStore = create()(
     persist(
         set => ({
